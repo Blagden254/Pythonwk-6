@@ -1,0 +1,61 @@
+#Assignement 1
+# Base class
+class Superhero:
+    def __init__(self, name, power, weakness):
+        self.name = name
+        self._power = power            # Encapsulated attribute
+        self.weakness = weakness
+
+    def display_power(self):
+        print(f"{self.name}'s power is {self._power}.")
+
+    def reveal_weakness(self):
+        print(f"{self.name}'s weakness is {self.weakness}.")
+
+# Subclass (Inheritance + Polymorphism)
+class FlyingHero(Superhero):
+    def display_power(self):  # Overriding the method
+        print(f"{self.name} can fly through the skies with {self._power} power!")
+
+# Subclass with Encapsulation
+class SpeedHero(Superhero):
+    def __init__(self, name, power, weakness):
+        super().__init__(name, power, weakness)
+
+    def boost_speed(self):
+        print(f"{self.name} boosts speed using {self._power}!")
+
+# Create instances
+hero1 = FlyingHero("Skyhawk", "Wind Control", "Storms")
+hero2 = SpeedHero("Flashbeat", "Lightning Speed", "Magnetic Fields")
+
+hero1.display_power()
+hero1.reveal_weakness()
+
+hero2.display_power()
+hero2.boost_speed()
+
+
+#Assignment 2
+class Aeroplane:
+    def move(self):
+        print("The aeroplane is preparing for movement...")
+
+class Jet(Aeroplane):
+    def move(self):
+        print("Jet is soaring through the sky at supersonic speed! ✈️")
+
+class Glider(Aeroplane):
+    def move(self):
+        print("Glider is floating silently through the air...")
+
+class Helicopter(Aeroplane):
+    def move(self):
+        print("Helicopter is hovering and rotating its blades! 🚁")
+
+# Test polymorphism
+aircrafts = [Jet(), Glider(), Helicopter()]
+
+for aircraft in aircrafts:
+    aircraft.move()
+
